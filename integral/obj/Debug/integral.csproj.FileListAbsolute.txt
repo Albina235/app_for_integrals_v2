@@ -1,0 +1,13 @@
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.csproj.AssemblyReference.cache
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.csproj.SuggestedBindingRedirects.cache
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.Form1.resources
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.Properties.Resources.resources
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.csproj.GenerateResource.cache
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.csproj.CoreCompileInputs.cache
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\bin\Debug\integral.exe.config
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\bin\Debug\integral.exe
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\bin\Debug\integral.pdb
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.exe
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.pdb
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\bin\Debug\MathParser.org-mXparser.dll
+C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.csproj.CopyComplete
