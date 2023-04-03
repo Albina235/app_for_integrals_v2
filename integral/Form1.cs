@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using org.mariuszgromada.math.mxparser;
 
 namespace integral
@@ -16,11 +17,6 @@ namespace integral
 		public Form1()
 		{
 			InitializeComponent();
-		}
-
-		private void Form1_Load(object sender, EventArgs e)
-		{
-
 		}
 
 
@@ -38,43 +34,61 @@ namespace integral
 			this.chart1.Series[2].Points.Clear();
 			Function f = new Function("f(x) = " + tB_function.Text);
 			x = a;
-			Expression e1 = new Expression("int( " + tB_function.Text +", x," + Convert.ToString(a)+ " ," + Convert.ToString(b) + ")");
-			while (x <= b)
-			{
-				Expression exp = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
-				y = exp.calculate();
-				this.chart1.Series[0].Points.AddXY(x, y);
-				
+			Expression e1 = new Expression("int( " + tB_function.Text + ", x," + Convert.ToString(a) + " ," + Convert.ToString(b) + ")");
 
-				
-				if (comboBox1.Text == "метод левых прямоугольников")
-				{
-					this.chart1.Series[1].Points.AddXY(x + h/2, y);
-					sum += y * h;
-				}
-				
-				if (comboBox1.Text == "метод правых прямоугольников")
-				{
-					x += h;
-					Expression exp1 = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
-					y = exp1.calculate();
-					this.chart1.Series[1].Points.AddXY(x - h/2, y);
-					sum += y * h;
-				}
-				if (comboBox1.Text == "метод средних прямоугольников")
-				{
-					x += h/2;
-					Expression exp2 = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
-					y = exp2.calculate();
-					this.chart1.Series[1].Points.AddXY(x, y);
-					sum += y * h;
-				}
-				x += h;
+			switch (comboBox1.Text)
+			{
+				case "метод левых прямоугольников":
+					while (x <= b - h / 2)
+					{
+						Expression exp = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
+						y = Math.Round(exp.calculate(), 3);
+						this.chart1.Series[0].Points.AddXY(x, y);
+						this.chart1.Series[1].Points.AddXY(Math.Round(x + h * 11 / 24, 6), y);
+						sum += y * h;
+						x += h;
+					}
+					break;
+
+				case "метод правых прямоугольников":
+					while (x <= b - h / 2) {
+						Expression exp = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
+						y = Math.Round(exp.calculate(), 6);
+						this.chart1.Series[0].Points.AddXY(x, y);
+						this.chart1.Series[1].Points.AddXY(Math.Round(x - h * 11 / 24, 6), y);
+						sum += y * h;
+						x += h;
+					}
+					break;
+
+				case "метод средних прямоугольников":
+					while (x <= b - h / 2)
+					{
+						Expression exp = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
+						y = Math.Round(exp.calculate(), 6);
+						this.chart1.Series[0].Points.AddXY(x, y);
+						this.chart1.Series[1].Points.AddXY(x, y);
+						sum += y * h;
+						x += h;
+					}
+					break;
 			}
-			if (e1.calculate() is double)
-                tB_out.Text = Convert.ToString(sum);
+			sum = Math.Round(sum, 6);
+			bool flazhok = !(double.IsNaN(sum));
+
+            if (flazhok)
+			{
+				tB_out.Text = Convert.ToString(sum);
+				this.BackgroundImage = Properties.Resources.good;
+			}
+
 			else
-				tB_out.Text = Convert.ToString(e1.calculate());
+			{
+				tB_out.Text = "Kurwa";
+                this.BackgroundImage = Properties.Resources.bad;
+            }
 		}
-	}
+
+      
+    }
 }

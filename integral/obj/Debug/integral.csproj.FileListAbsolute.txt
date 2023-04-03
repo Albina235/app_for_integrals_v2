@@ -11,3 +11,17 @@ C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\
 C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.pdb
 C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\bin\Debug\MathParser.org-mXparser.dll
 C:\Users\Альбина\OneDrive\Рабочий стол\test\integral\integral\obj\Debug\integral.csproj.CopyComplete
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\bin\Debug\integral.exe.config
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\bin\Debug\integral.exe
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\bin\Debug\integral.pdb
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\bin\Debug\MathParser.org-mXparser.dll
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.csproj.AssemblyReference.cache
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.csproj.SuggestedBindingRedirects.cache
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.Form1.resources
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.Properties.Resources.resources
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.csproj.GenerateResource.cache
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.csproj.CoreCompileInputs.cache
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.csproj.CopyComplete
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.exe
+C:\Users\kazak\Source\Repos\Ivlex04\Integral-visualization\integral\obj\Debug\integral.pdb
+C:\Users\kazak\source\repos\Ivlex04\Integral-visualization\integral\bin\Debug\Resources\good.png
