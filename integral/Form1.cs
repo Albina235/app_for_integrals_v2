@@ -24,6 +24,8 @@ namespace integral
 
         private void leftBorder_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == '-')
+                return;
             // проверка на дебила
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
             {
@@ -40,6 +42,9 @@ namespace integral
         private void rightBorder_KeyPress(object sender, KeyPressEventArgs e)
         {
             // проверка на дебила
+            if (e.KeyChar == '-')
+                return;
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
             {
                 e.Handled = true;
@@ -69,7 +74,9 @@ namespace integral
         private void button1_Click(object sender, EventArgs e)
         {
             string s = functionInput.Text;
-            double h = 0.1;
+            double h = 0.01;
+            if (textBox2.Text != "")
+                h = Convert.ToDouble(textBox2.Text.Replace('.', ','));
             double x, y;
             double sum = 0.0;
             double a = Convert.ToDouble(leftBorder.Text);
@@ -81,6 +88,8 @@ namespace integral
             Function f = new Function("f(x) = " + functionInput.Text);
             x = a;
             Expression e1 = new Expression("int( " + functionInput.Text + ", x," + Convert.ToString(a) + " ," + Convert.ToString(b) + ")");
+
+            bool flag = true;
             while (x <= b)
             {
                 Expression exp = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
@@ -100,6 +109,10 @@ namespace integral
                     x += h;
                     Expression exp1 = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
                     y = exp1.calculate();
+                    if (Convert.ToString(exp1.calculate()) == "не число")
+                    {
+                        flag = false;
+                    }
                     this.chart2.Series[1].Points.AddXY(x - h / 2, y);
                     sum += y * h;
                 }
@@ -108,6 +121,12 @@ namespace integral
                     x += h / 2;
                     Expression exp2 = new Expression("f(" + x.ToString().Replace(',', '.') + ")", f);
                     y = exp2.calculate();
+
+                    if(exp2.calculate() == null)
+                    {
+                        flag = false;
+                    }
+
                     this.chart2.Series[1].Points.AddXY(x, y);
                     sum += y * h;
                 }
@@ -137,7 +156,7 @@ namespace integral
             string path = Path.Combine(
                 Directory.GetCurrentDirectory(), 
                 "Images", 
-                Convert.ToString(rnd.Next(0, 6))+".jpg"
+                Convert.ToString(rnd.Next(0, 13))+".jpg"
                 );
 
 
@@ -150,10 +169,15 @@ namespace integral
             Label label = new Label();
             Label label1 = new Label();
             label1.Text = "Молодец ты справился, вот тебе за это картинку!!!\n";
-            if (Convert.ToString(e1.calculate()) == "не число")
+            if (/*Convert.ToString(e1.calculate()) != "не число" */sum < 1e9)
                 label.Text += Convert.ToString(sum);
             else
+            {
+                this.chart2.Series[1].Points.Clear();
+                this.chart2.Series[2].Points.Clear();
+
                 label.Text += Convert.ToString(e1.calculate());
+            }
 
 
             pictureBox.Dock = DockStyle.Top;
@@ -179,8 +203,14 @@ namespace integral
             messageBox.ShowDialog();
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
-        
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
